@@ -1,22 +1,26 @@
+<!-- Header with title -->
 <ion-header>
   <ion-toolbar>
     <ion-title>Login Appetite</ion-title>
   </ion-toolbar>
 </ion-header>
 
+<!-- Content of the page -->
 <ion-content>
   <div class="container">
     <div class="row">
       <div class="col-lg-10 col-xl-9 mx-auto">
         <div class="card card-signin flex-row my-5">
           <div class="card-img-left d-none d-md-flex">
-            <!-- Background image for card set in CSS! -->
           </div>
           <div class="card-body">
+            <!-- Titles and subtitles -->
             <h1 class="titulo">Appetite</h1>
             <h2 class="subtitulo">Iniciar Sesión</h2>
             <br>
+            <!-- Button that calls function onLoginGoogle -->>
             <ion-button class="boton" expand="block" color="danger" (click)="onLoginGoogle()">
+              <!-- Icon -->
               <ion-icon name="logo-google"></ion-icon> &nbsp;Google
             </ion-button>
           </div>
