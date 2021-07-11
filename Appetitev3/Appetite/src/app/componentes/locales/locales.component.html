@@ -1,0 +1,43 @@
+<!-- Post component -->
+<ion-card>
+
+  <ion-img class="imagen" [src]="local.imagen"></ion-img>
+
+  <ion-card-header>
+    <ion-card-subtitle>{{local.Descripcion}}</ion-card-subtitle>
+    <ion-card-title>{{local.Nombre}}</ion-card-title>
+    <ion-card-subtitle>{{local.OpenDays}} / {{local.openHours}}</ion-card-subtitle>
+  </ion-card-header>
+
+  <!-- Adress of the current local -->
+  <ion-card-content>
+    {{local.Direccion}}
+  </ion-card-content>
+
+  <div>
+
+    <!-- Comment icon -->
+    <div class="comentario">
+      <ion-card-content class="comentarios" (click)="presentModal()">
+        <ion-icon slot="icon-only" name="chatbox-ellipses-outline"></ion-icon>
+      </ion-card-content>
+    </div>
+
+    <!-- Likes icon -->
+    <div class="like">
+      <ion-card-content class="comentarios" (click)="toogleLike()">
+        <ion-icon slot="icon-only" [name]="tooglehearth"></ion-icon>
+        <ion-badge color="medium">{{local.likes.length-1}}</ion-badge>
+      </ion-card-content>
+    </div>
+
+    <!-- Map icon -->
+    <div class="mapa">
+      <ion-card-content class="comentarios" (click)="mapa()">
+        <ion-icon slot="icon-only" name="map-outline"></ion-icon>
+      </ion-card-content>
+    </div>
+
+  </div>
+
+</ion-card>

@@ -1,0 +1,135 @@
+<!-- Menu-button -->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu()">
+        <ion-icon name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Menu with profile name and photo.
+Button for logout -->
+<ion-menu side="start" menuId="first" contentId="main">
+  <ion-header>
+    <ion-toolbar color="danger">
+      <ion-title>Perfíl</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="openMenu()">
+          <ion-icon name="menu-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content *ngIf="user$ | async as user">
+    <ion-avatar class="avatar">
+      <img src="{{user.photoURL}}">
+    </ion-avatar>
+    <ion-label class="nombre">{{user.displayName}}</ion-label>
+    <ion-button expand="block" color="danger" class="boton" (click)="logOut()">Cerrar sesión</ion-button>
+  </ion-content>
+</ion-menu>
+<ion-router-outlet id="main"></ion-router-outlet>
+
+<!-- Page content -->
+<ion-content>
+
+  <!-- Title -->
+  <h1 class="titulo">Appetite</h1>
+
+  <!-- Motto -->
+  <p class="subtitulo">Busca tu destino, sacia tu apetito</p>
+
+  <!-- All the inputs for the local -->
+  <ion-item>
+    <ion-label color="white" position="floating">Nombre</ion-label>
+    <ion-input [(ngModel)]="nuevoLocal.Nombre"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="white" position="floating">Descripción</ion-label>
+    <ion-input [(ngModel)]="nuevoLocal.Descripcion"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="white" position="floating">Dirección</ion-label>
+    <ion-input [(ngModel)]="nuevoLocal.Direccion"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="white" position="floating">Horario de apertura</ion-label>
+    <ion-input placeholder="07:00-20:00" [(ngModel)]="nuevoLocal.openHours"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="white" position="floating">Días de apertura</ion-label>
+    <ion-input [(ngModel)]="nuevoLocal.OpenDays" placeholder="L-V"></ion-input>
+  </ion-item>
+
+  <!-- Icon for upload the photo -->
+  <ion-item>
+    <ion-label position="stacked">Foto</ion-label>
+    <ion-buttons slot="end">
+      <ion-button>
+        <label for="file-upload">
+          <ion-icon name="images-outline" class="icono"></ion-icon>
+        </label>
+        <input id="file-upload" (change)="newImageUpload($event)" style="display: none;" type="file" accept="images/*">
+      </ion-button>
+    </ion-buttons>
+    <img [src]="newImage" class="imagenLocal">
+  </ion-item>
+
+  <!-- Icon for upload location -->
+  <ion-item>
+    <ion-label position="stacked">Ubicación</ion-label>
+    <ion-buttons slot="end">
+      <ion-button (click)="getUserPosition()">
+        <ion-icon name="location-outline" class="icono"></ion-icon>
+      </ion-button>
+      <ion-label>
+        {{latitud}}
+      </ion-label>
+      <ion-label>
+        {{longitud}}
+      </ion-label>
+    </ion-buttons>
+  </ion-item>
+
+  <!-- Sumbit button -->
+  <ion-button expand="block" color="danger" class="boton" (click)="crearlocal()">Crear local</ion-button>
+
+  <hr>
+
+  <ion-list-header>
+    <ion-label>Locales sugeridos</ion-label>
+  </ion-list-header>
+
+  <!-- Items with all tthe information of the local -->
+  <ion-item *ngFor="let sugerencia of sugerencias">
+
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h6 class="card-subtitle mb-2 text-muted">{{sugerencia.Descripcion}}</h6>
+        <h5 class="card-title">{{sugerencia.Nombre}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{sugerencia.OpenDays}} / {{sugerencia.openHours}}</h6>
+        <p class="card-text">{{sugerencia.Direccion}}</p>
+      </div>
+    </div>
+
+    <!-- Buttons for add or remove the locals -->
+    <ion-buttons slot="end">
+      <ion-button (click)= "nuevoLocal = sugerencia">
+        <ion-icon slot="icon-only" name="add-circle-outline" color="success"></ion-icon>
+      </ion-button>
+      <ion-button (click)="eliminarSugerencia(sugerencia)">
+        <ion-icon slot="icon-only" name="trash-outline" color="danger"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-item>
+
+  <br>
+
+</ion-content>

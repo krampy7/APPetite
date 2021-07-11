@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <google-map [center]="position" width="100%">
+    <map-marker
+    [position]="position"
+    [label]="label">
+    </map-marker>
+  </google-map>
+</ion-content>

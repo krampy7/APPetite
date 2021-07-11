@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu()">
+        <ion-icon name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-menu side="start" menuId="first" contentId="main">
+  <ion-header>
+    <ion-toolbar color="danger">
+      <ion-title>Perfíl</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="openMenu()">
+          <ion-icon name="menu-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content *ngIf="user$ | async as user">
+    <ion-avatar class="avatar">
+      <img src="{{user.photoURL}}">
+    </ion-avatar>
+    <ion-label class="nombre">{{user.displayName}}</ion-label>
+    <ion-button expand="block" color="danger" class="boton" (click)="logOut()">Cerrar sesión</ion-button>
+  </ion-content>
+</ion-menu>
+
+<ion-router-outlet id="main"></ion-router-outlet>
+
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="lista">
+      <ion-icon color="danger" name="list-outline"></ion-icon>
+      <ion-label color="danger">Lista</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="sugerir">
+      <ion-icon color="danger" name="earth-outline"></ion-icon>
+      <ion-label color="danger" >Sugerir</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

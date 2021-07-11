@@ -1,0 +1,40 @@
+<ion-content>
+
+  <br>
+  <br>
+  <br>
+
+  <h1 class="titulo">Appetite</h1>
+
+  <br>
+
+  <p class="subtitulo">Busca tu destino, Sacia tu apetito</p>
+
+  <ion-item>
+    <ion-label color="white" position="floating">Nombre</ion-label>
+    <ion-input [(ngModel)]="nuevaSugerencia.Nombre" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="white" position="floating">Descripción</ion-label>
+    <ion-input [(ngModel)]="nuevaSugerencia.Descripcion"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="white" position="floating">Dirección</ion-label>
+    <ion-input required="" [(ngModel)]="nuevaSugerencia.Direccion"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="white" position="floating">Horario de apertura</ion-label>
+    <ion-input [(ngModel)]="nuevaSugerencia.openHours"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="white" position="floating">Días de apertura</ion-label>
+    <ion-input [(ngModel)]="nuevaSugerencia.OpenDays" placeholder="L-V"></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" color='danger' class="boton" (click)="crearSugerencia()">crear sugerencia</ion-button>
+
+</ion-content>

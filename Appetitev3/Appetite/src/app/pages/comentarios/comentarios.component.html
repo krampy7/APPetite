@@ -1,0 +1,59 @@
+<!-- The image of the local and its name -->
+<ion-app>
+  <ion-header translucent>
+    <ion-toolbar>
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <!-- The image of the actual object is displayed -->
+          <img src="{{local.imagen}}" class="card-img-top" alt="...">
+        </ion-thumbnail>
+        <!-- The name of the actual object is displayed -->
+        <ion-label>{{local.Nombre}}</ion-label>
+        <ion-buttons slot="end">
+          <ion-button (click)="closeModal()">
+            <ion-icon name="close-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Comment cards displayed with the name and image of the user -->
+  <ion-content fullscreen>
+    <ion-list>
+      <!-- Every comment is display with a for -->
+      <ion-item *ngFor="let comment of comentarios">
+        <ion-avatar slot="start">
+          <!-- User's photo is displayed with the object comment -->
+          <img src="{{comment.foto}}">
+        </ion-avatar>
+        <ion-label>
+          <!-- All the info from the obejct comment is dispayed-->
+          <h3>{{comment.autor}}</h3>
+          <p>{{comment.comentario}}</p>
+          <p>{{comment.fecha.seconds*1000 |date :'medium'}}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+
+  <!-- Comments input section -->
+  <ion-footer>
+
+    <ion-item *ngIf="user$ | async as user">
+      <ion-avatar slot="start">
+        <!-- User's image -->
+        <img src="{{user.photoURL}}">
+      </ion-avatar>
+      <!-- All the info goes to commentario -->
+      <ion-textarea [(ngModel)]="comentario"  placeholder="Inserta un cometario público"></ion-textarea>
+      <ion-buttons slot="end">
+        <ion-button (click)="comentar()">
+          <ion-icon slot="icon-only" name="paper-plane-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+
+  </ion-footer>
+</ion-app>
+
