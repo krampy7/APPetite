@@ -9,7 +9,6 @@ const routes: Routes = [
   {path: 'tabs', loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule)},
   {path: '', component: HomeComponent},
   {path: '**', redirectTo: 'home', pathMatch: 'full'},
-  
 ];
 
 @NgModule({

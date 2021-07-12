@@ -1,4 +1,4 @@
-
+//local interface
 export interface Local {
     Nombre: string;
     Descripcion: string;
@@ -15,6 +15,7 @@ export interface Local {
     fechaCreacion: Date;
 }
 
+//user interface
 export interface User {
     uid: string;
     displayName: string;
@@ -22,6 +23,7 @@ export interface User {
     email: string;
 }
 
+//Sugerencia interface
 export interface Sugerencia {
     Nombre: string;
     Descripcion: string;
@@ -37,6 +39,7 @@ export interface Sugerencia {
     fechaCreacion: Date;
 }
 
+//Comentario interface
 export interface Comentario {
     autor: string;
     foto:string;

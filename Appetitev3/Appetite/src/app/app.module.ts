@@ -18,8 +18,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
-    BrowserModule, 
-    IonicModule.forRoot(), 
+    BrowserModule,
+    IonicModule.forRoot(),
     BackendModule,
     PagesModule,
     AppRoutingModule,
@@ -27,7 +27,6 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireAuthModule
-
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
