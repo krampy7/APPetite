@@ -10,8 +10,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { GoogleMapsModule } from '@angular/google-maps';
 
-
-
 @NgModule({
   declarations: [
     HomeComponent,
@@ -19,7 +17,6 @@ import { GoogleMapsModule } from '@angular/google-maps';
     MapaComponent,
     SugerirComponent,
     ComentariosComponent,
-    
   ],
   imports: [
     CommonModule,

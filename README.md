@@ -16,7 +16,7 @@ Se desarrolló una aplicación movil que se pueda usar en Dispositivos Android  
 
 ##Arquitectura 
 
-La aplicación se desarrolló con tecnología web usando el framewor de javascript Angular y Ionic para poder complilar en dispositivos nativos. 
+La aplicación se desarrolló con tecnología web usando el framework de javascript Angular y Ionic para poder complilar en dispositivos nativos. 
 
 como base de datos se utiizó Firebase ya que tenía modulos como la autenticación y almacenamiento de archivos. además de que el ambiente de desarrollo es compatible 100% con firebase. 
 
@@ -114,7 +114,6 @@ Asegúrese de actualizar las pruebas según corresponda.
 
 # Video demostración
 
-https://youtu.be/bDxFtbuuOfk
 
 
 
