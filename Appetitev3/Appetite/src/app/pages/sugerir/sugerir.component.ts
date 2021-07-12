@@ -9,8 +9,11 @@ import { Router } from '@angular/router';
   templateUrl: './sugerir.component.html',
   styleUrls: ['./sugerir.component.scss'],
 })
+
+//Class SugerirComponent
 export class SugerirComponent implements OnInit {
 
+  //Object nuevaSugerencia instantiated with the interface
   nuevaSugerencia: Sugerencia = {
     Nombre: '',
     Descripcion: '',
@@ -21,14 +24,18 @@ export class SugerirComponent implements OnInit {
       lat:0,
       lng:0,
   },
+  //Likes, a new id and date created as attributes for the object
     likes:['tyuio'],
     id: this.database.getId(),
     fechaCreacion: new Date()
   };
 
   private path = 'Sugerencias/'
+
+  //Loading element of type any
   loading: any;
 
+  //Constructor with services
   constructor(
     public database: FirestoreService,
     public loadingController: LoadingController,
@@ -36,12 +43,18 @@ export class SugerirComponent implements OnInit {
     public alertController: AlertController,
     private router: Router) { }
 
+  //ngOnInit
   ngOnInit() {}
 
+  //Method crearSugerencia
   crearSugerencia() {
+    //Calls presentLoading method
     this.presentLoading();
+    //Create a new suggest (sugerencia) in the database
     this.database.createDoc(this.nuevaSugerencia, this.path, this.nuevaSugerencia.id).then(res => {
+      //Calls method loading
       this.loading.dismiss();
+      //Calls method present Toast
       this.presentToast('Su solicitud será procesada');
     }).catch(error => {
       console.log(error);

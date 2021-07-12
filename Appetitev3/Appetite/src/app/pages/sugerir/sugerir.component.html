@@ -1,15 +1,14 @@
 <ion-content>
 
-  <br>
-  <br>
-  <br>
+  <p id="separador"></p>
 
+  <!-- Title and subtitle -->
   <h1 class="titulo">Appetite</h1>
-
   <br>
-
   <p class="subtitulo">Busca tu destino, Sacia tu apetito</p>
 
+
+  <!-- A formulary that sends all the input data to the object nuevaSugerencia -->
   <ion-item>
     <ion-label color="white" position="floating">Nombre</ion-label>
     <ion-input [(ngModel)]="nuevaSugerencia.Nombre" required></ion-input>
@@ -35,6 +34,7 @@
     <ion-input [(ngModel)]="nuevaSugerencia.OpenDays" placeholder="L-V"></ion-input>
   </ion-item>
 
+  <!-- Button that calls de function crearSugerencia -->
   <ion-button expand="block" color='danger' class="boton" (click)="crearSugerencia()">crear sugerencia</ion-button>
 
 </ion-content>
